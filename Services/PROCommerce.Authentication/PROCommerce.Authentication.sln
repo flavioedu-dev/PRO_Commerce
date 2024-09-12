@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Authentication.API", "PROCommerce.Authentication.API\PROCommerce.Authentication.API.csproj", "{D8BA42AC-70D9-4089-AFB4-0F45FF36E10B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Authentication.Domain", "PROCommerce.Authentication.Domain\PROCommerce.Authentication.Domain.csproj", "{07BC2230-1836-4B77-A2B0-E9E25738FC57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Authentication.Application", "PROCommerce.Authentication.Application\PROCommerce.Authentication.Application.csproj", "{B91414B8-8B4A-434B-9024-02D604171A3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Authentication.Infrastructure", "PROCommerce.Authentication.Infrastructure\PROCommerce.Authentication.Infrastructure.csproj", "{E532601B-3217-4D5E-9025-5393564F90EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Authentication.CrossCutting", "PROCommerce.Authentication.CrossCutting\PROCommerce.Authentication.CrossCutting.csproj", "{E2A96633-0056-477F-8B0A-BCD2E457E69A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8BA42AC-70D9-4089-AFB4-0F45FF36E10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8BA42AC-70D9-4089-AFB4-0F45FF36E10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8BA42AC-70D9-4089-AFB4-0F45FF36E10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8BA42AC-70D9-4089-AFB4-0F45FF36E10B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07BC2230-1836-4B77-A2B0-E9E25738FC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07BC2230-1836-4B77-A2B0-E9E25738FC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07BC2230-1836-4B77-A2B0-E9E25738FC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07BC2230-1836-4B77-A2B0-E9E25738FC57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91414B8-8B4A-434B-9024-02D604171A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91414B8-8B4A-434B-9024-02D604171A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91414B8-8B4A-434B-9024-02D604171A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91414B8-8B4A-434B-9024-02D604171A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E532601B-3217-4D5E-9025-5393564F90EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E532601B-3217-4D5E-9025-5393564F90EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E532601B-3217-4D5E-9025-5393564F90EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E532601B-3217-4D5E-9025-5393564F90EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2A96633-0056-477F-8B0A-BCD2E457E69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2A96633-0056-477F-8B0A-BCD2E457E69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2A96633-0056-477F-8B0A-BCD2E457E69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2A96633-0056-477F-8B0A-BCD2E457E69A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CBD23D4-0549-4F4F-8EF4-BD1B5D6BFA84}
+	EndGlobalSection
+EndGlobal
