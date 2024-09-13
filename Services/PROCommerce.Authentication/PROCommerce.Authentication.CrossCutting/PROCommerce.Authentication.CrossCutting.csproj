@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PROCommerce.Authentication.Application\PROCommerce.Authentication.Application.csproj" />
+    <ProjectReference Include="..\PROCommerce.Authentication.Infrastructure\PROCommerce.Authentication.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
