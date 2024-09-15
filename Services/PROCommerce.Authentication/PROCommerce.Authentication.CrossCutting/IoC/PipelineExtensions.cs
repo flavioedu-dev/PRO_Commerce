@@ -5,8 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using PROCommerce.Authentication.Application.Services;
 using PROCommerce.Authentication.Domain.Configurations;
+using PROCommerce.Authentication.Domain.Interfaces.Repositories;
 using PROCommerce.Authentication.Domain.Interfaces.Services;
-using PROCommerce.Authentication.Infrastructure.Repository;
+using PROCommerce.Authentication.Infrastructure.Repositories;
 using System.Text;
 
 namespace PROCommerce.Authentication.CrossCutting.IoC;
@@ -43,6 +44,9 @@ public static class PipelineExtensions
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("PROCommerce"))
         );
+
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 
     public static void AddConfigurationsDependeciesDI(this IServiceCollection services, IConfiguration configuration)

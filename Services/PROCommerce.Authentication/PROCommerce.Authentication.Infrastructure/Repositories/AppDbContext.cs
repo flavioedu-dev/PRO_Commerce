@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using PROCommerce.Authentication.Domain.Entities;
 
-namespace PROCommerce.Authentication.Infrastructure.Repository;
+namespace PROCommerce.Authentication.Infrastructure.Repositories;
 
 public class AppDbContext : DbContext
 {
