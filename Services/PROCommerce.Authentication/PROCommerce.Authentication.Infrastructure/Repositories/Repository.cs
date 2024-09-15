@@ -4,7 +4,7 @@ namespace PROCommerce.Authentication.Infrastructure.Repositories;
 
 public class Repository<T> : IRepository<T> where T : class
 {
-    private readonly AppDbContext _dbContext;
+    protected readonly AppDbContext _dbContext;
 
     public Repository(AppDbContext dbContext)
     {
