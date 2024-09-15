@@ -16,7 +16,8 @@ public static class PipelineExtensions
 {
     public static void AddApplicationDI(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<ITokenService, TokenService>();
+        #region JWT
+        services.AddScoped<ITokenServices, TokenServices>();
 
         services.AddAuthentication(x =>
         {
@@ -35,22 +36,33 @@ public static class PipelineExtensions
                     ValidateAudience = false
                 };
             });
+        #endregion
+
+        #region Auth
+        services.AddScoped<IAuthServices, AuthServices>();
+        #endregion Auth
     }
 
     public static void AddInfrastructureDI(this IServiceCollection services, IConfiguration configuration)
     {
+        #region DbContext
         services.AddScoped<AppDbContext>();
 
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("PROCommerce"))
         );
+        #endregion DbContext
 
+        #region Repositories
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUserRepository, UserRepository>();
+        #endregion Repositories
     }
 
     public static void AddConfigurationsDependeciesDI(this IServiceCollection services, IConfiguration configuration)
     {
+        #region AppOptions
         services.Configure<AppOptions>(configuration.GetSection("AppSettings"));
+        #endregion AppOptions
     }
 }
