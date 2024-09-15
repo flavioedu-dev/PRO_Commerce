@@ -2,7 +2,7 @@
 
 namespace PROCommerce.Authentication.Domain.Interfaces.Services;
 
-public interface ITokenService
+public interface ITokenServices
 {
     string GenerateToken(User user);
 }
