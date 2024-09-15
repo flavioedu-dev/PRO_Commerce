@@ -9,11 +9,11 @@ using System.Text;
 
 namespace PROCommerce.Authentication.Application.Services;
 
-public class TokenService : ITokenService
+public class TokenServices : ITokenServices
 {
     private readonly AppOptions _appOptions;
 
-    public TokenService(IOptions<AppOptions> appOptions)
+    public TokenServices(IOptions<AppOptions> appOptions)
     {
         _appOptions = appOptions.Value;
     }
