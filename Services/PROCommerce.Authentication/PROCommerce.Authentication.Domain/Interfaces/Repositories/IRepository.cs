@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace PROCommerce.Authentication.Domain.Interfaces.Repositories;
+﻿namespace PROCommerce.Authentication.Domain.Interfaces.Repositories;
 
 public interface IRepository<T>
 {

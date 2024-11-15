@@ -6,12 +6,13 @@ namespace PROCommerce.Authentication.Infrastructure.Repositories;
 
 public class UserRepository : Repository<User>, IUserRepository
 {
-    public UserRepository(AppDbContext dbContext) : base(dbContext)
+    public UserRepository(AppDbContext dbContext)
     {
+        _dbContext = dbContext;
     }
 
     public User? GetByUsername(Expression<Func<User, bool>> predicate)
     {
-        return _dbContext.Users.FirstOrDefault(predicate);
+        return _dbContext?.Users.FirstOrDefault(predicate);
     }
 }

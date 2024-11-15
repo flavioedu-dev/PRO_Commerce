@@ -4,27 +4,20 @@ namespace PROCommerce.Authentication.Infrastructure.Repositories;
 
 public class Repository<T> : IRepository<T> where T : class
 {
-    protected readonly AppDbContext _dbContext;
+    protected AppDbContext? _dbContext;
 
-    public Repository(AppDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
+    public IQueryable<T> GetAll() => _dbContext?.Set<T>()!;
 
-    public IQueryable<T> GetAll() => _dbContext.Set<T>();
-
-    public T? Get(long id) => _dbContext.Set<T>().Find(id);
+    public T? Get(long id) => _dbContext?.Set<T>().Find(id);
 
     public void Create(T entity)
     {
-        _dbContext.Set<T>().Add(entity);
-        _dbContext.SaveChanges();
+        _dbContext?.Set<T>().Add(entity);
     }
 
     public void Update(T entity)
     {
-        _dbContext.Set<T>().Update(entity);
-        _dbContext.SaveChanges();
+        _dbContext?.Set<T>().Update(entity);
     }
 
     public void Delete(int id)
@@ -34,7 +27,6 @@ public class Repository<T> : IRepository<T> where T : class
         if (entity == null)
             return;
 
-        _dbContext.Set<T>().Remove(entity);
-        _dbContext.SaveChanges();
+        _dbContext?.Set<T>().Remove(entity);
     }
 }

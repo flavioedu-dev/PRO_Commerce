@@ -47,13 +47,14 @@ public static class PipelineExtensions
     {
         #region DbContext
         services.AddScoped<AppDbContext>();
-
+        
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("PROCommerce"))
         );
         #endregion DbContext
 
         #region Repositories
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUserRepository, UserRepository>();
         #endregion Repositories
