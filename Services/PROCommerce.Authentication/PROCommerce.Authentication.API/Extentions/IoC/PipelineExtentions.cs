@@ -1,7 +1,8 @@
-﻿namespace PROCommerce.Authentication.API.Extentions.IoC;
-
-using PROCommerce.Authentication.API.Extentions.Mapper;
+﻿using PROCommerce.Authentication.API.Extentions.Mapper;
+using PROCommerce.Authentication.API.Middlewares;
 using PROCommerce.Authentication.CrossCutting.IoC;
+
+namespace PROCommerce.Authentication.API.Extentions.IoC;
 
 public static class PipelineExtentions
 {
@@ -24,5 +25,10 @@ public static class PipelineExtentions
         services.AddApplicationDI(config);
         services.AddInfrastructureDI(config);
         services.AddConfigurationsDependeciesDI(config);
+    }
+
+    public static void AddMiddlewares(this IApplicationBuilder app)
+    {
+        app.UseGlobalErrorHandling();
     }
 }
