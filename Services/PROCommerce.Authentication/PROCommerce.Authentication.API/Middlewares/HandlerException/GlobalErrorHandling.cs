@@ -1,5 +1,5 @@
-﻿using PROCommerce.Authentication.API.Middlewares.HandlerException.Exceptions;
-using PROCommerce.Authentication.API.Middlewares.HandlerException.Response;
+﻿using PROCommerce.Authentication.API.Middlewares.HandlerException.Response;
+using PROCommerce.Authentication.Domain.Exceptions;
 using System.Text.Json;
 
 namespace PROCommerce.Authentication.API.Middlewares.HandlerException;
