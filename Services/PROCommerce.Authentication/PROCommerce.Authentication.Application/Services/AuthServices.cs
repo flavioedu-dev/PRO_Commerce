@@ -1,7 +1,9 @@
 ﻿using Mapster;
+using PROCommerce.Authentication.Application.Resources;
 using PROCommerce.Authentication.Domain.DTOs.Auth;
 using PROCommerce.Authentication.Domain.DTOs.Auth.Response;
 using PROCommerce.Authentication.Domain.Entities;
+using PROCommerce.Authentication.Domain.Exceptions;
 using PROCommerce.Authentication.Domain.Interfaces.Repositories;
 using PROCommerce.Authentication.Domain.Interfaces.Services;
 
@@ -23,10 +25,10 @@ public class AuthServices : IAuthServices
         try
         {
             User? user = _userRepository.GetByUsername(x => x.Username == loginDTO.Username)
-                ?? throw new Exception("User not found.");
+                ?? throw new CustomResponseException(ApplicationMessages.Authentication_Login_User_NotFound);
 
             if (user?.Password != loginDTO.Password)
-                throw new Exception("Invalid credentials.");
+                throw new CustomResponseException(ApplicationMessages.Authentication_Login_ValidCredentials_Fail);
 
             string token = _tokenService.GenerateToken(user!);
 
