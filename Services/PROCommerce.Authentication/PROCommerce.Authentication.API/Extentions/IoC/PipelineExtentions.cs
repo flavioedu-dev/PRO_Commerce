@@ -1,4 +1,6 @@
-﻿using PROCommerce.Authentication.API.Extentions.Mapper;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using PROCommerce.Authentication.API.Extentions.Mapper;
 using PROCommerce.Authentication.API.Middlewares;
 using PROCommerce.Authentication.CrossCutting.IoC;
 
@@ -13,6 +15,11 @@ public static class PipelineExtentions
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         #endregion Default
+
+        #region FluentValidation
+        services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+        services.AddFluentValidationAutoValidation();
+        #endregion FluentValidation
 
         #region Mapster
         services.RegisterMaps();
