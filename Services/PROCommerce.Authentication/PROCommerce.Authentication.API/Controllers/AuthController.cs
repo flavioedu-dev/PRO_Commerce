@@ -36,17 +36,10 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     public IActionResult Register(RegisterModel registerModel)
     {
-        try
-        {
-            RegisterDTO registerDTO = registerModel.Adapt<RegisterDTO>();
+        RegisterDTO registerDTO = registerModel.Adapt<RegisterDTO>();
 
-            RegisterResponseDTO registerResponseDTO = _authServices.Register(registerDTO);
+        RegisterResponseDTO registerResponseDTO = _authServices.Register(registerDTO);
 
-            return StatusCode(StatusCodes.Status201Created, registerResponseDTO);
-        }
-        catch (Exception)
-        {
-            return BadRequest();
-        }
+        return StatusCode(StatusCodes.Status201Created, registerResponseDTO);
     }
 }

@@ -77,5 +77,23 @@ namespace PROCommerce.Authentication.Application.Resources {
                 return ResourceManager.GetString("Authentication_Login_ValidCredentials_Fail", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email already registered..
+        /// </summary>
+        public static string Authentication_Register_User_EmailExists {
+            get {
+                return ResourceManager.GetString("Authentication_Register_User_EmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username unavailable..
+        /// </summary>
+        public static string Authentication_Register_User_UsernameExists {
+            get {
+                return ResourceManager.GetString("Authentication_Register_User_UsernameExists", resourceCulture);
+            }
+        }
     }
 }

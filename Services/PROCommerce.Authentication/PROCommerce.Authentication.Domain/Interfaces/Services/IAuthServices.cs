@@ -6,4 +6,6 @@ namespace PROCommerce.Authentication.Domain.Interfaces.Services;
 public interface IAuthServices
 {
     LoginResponseDTO Login(LoginDTO loginDTO);
+
+    RegisterResponseDTO Register(RegisterDTO registerDTO);
 }

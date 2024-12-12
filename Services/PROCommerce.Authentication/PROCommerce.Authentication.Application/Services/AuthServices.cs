@@ -42,4 +42,35 @@ public class AuthServices : IAuthServices
         }
 
     }
+
+    public RegisterResponseDTO Register(RegisterDTO registerDTO)
+    {
+        try
+        {
+            User? userByUsername = _unitOfWork.UserRepository.GetByUsername(registerDTO.Username);
+
+            if (userByUsername is not null) 
+                throw new CustomResponseException(ApplicationMessages.Authentication_Register_User_UsernameExists);
+
+            User? userByEmail = _unitOfWork.UserRepository.GetByEmail(registerDTO.Email);
+
+            if (userByEmail is not null) 
+                throw new CustomResponseException(ApplicationMessages.Authentication_Register_User_EmailExists);
+
+            string hashPassword = _passwordEncryption.HashPassword(registerDTO.Password);
+
+            User user = ValueTuple.Create(registerDTO, hashPassword).Adapt<User>();
+
+            _unitOfWork.UserRepository.Create(user);
+            _unitOfWork.Commit();
+
+            RegisterResponseDTO registerResponseDTO = user.Adapt<RegisterResponseDTO>();
+
+            return registerResponseDTO;
+        }
+        catch
+        {
+            throw;
+        }
+    }
 }

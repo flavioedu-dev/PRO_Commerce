@@ -123,4 +123,10 @@
   <data name="Authentication_Login_ValidCredentials_Fail" xml:space="preserve">
     <value>Invalid credentials.</value>
   </data>
+  <data name="Authentication_Register_User_EmailExists" xml:space="preserve">
+    <value>Email already registered.</value>
+  </data>
+  <data name="Authentication_Register_User_UsernameExists" xml:space="preserve">
+    <value>Username unavailable.</value>
+  </data>
 </root>
