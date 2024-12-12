@@ -42,7 +42,7 @@ public class GlobalErrorHandling
             case CustomResponseException customException:
                 errorResponse.Message = customException?.InnerException?.Message ?? customException?.Message;
 
-                httpContext.Response.StatusCode = (int)customException?.StatusCode!;
+                httpContext.Response.StatusCode = customException?.StatusCode ?? 400;
 
                 await httpContext.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
 

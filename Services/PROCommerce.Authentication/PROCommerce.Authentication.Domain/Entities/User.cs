@@ -5,7 +5,7 @@ namespace PROCommerce.Authentication.Domain.Entities;
 
 public class User : BaseEntity
 {
-    public string? Name { get; set; }
+    public string? FullName { get; set; }
 
     public string? Username { get; set; }
 
