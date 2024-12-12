@@ -1,4 +1,5 @@
-﻿using PROCommerce.Authentication.Domain.Entities;
+﻿using PROCommerce.Authentication.Domain.DTOs.Auth;
+using PROCommerce.Authentication.Domain.Entities;
 using PROCommerce.Authentication.Domain.Interfaces.Repositories;
 using System.Linq.Expressions;
 
@@ -11,8 +12,13 @@ public class UserRepository : Repository<User>, IUserRepository
         _dbContext = dbContext;
     }
 
-    public User? GetByUsername(Expression<Func<User, bool>> predicate)
+    public User? GetByUsername(string username)
     {
-        return _dbContext?.Users.FirstOrDefault(predicate);
+        return _dbContext?.Users.FirstOrDefault(x => x.Username == username);
+    }
+
+    public User? GetByEmail(string email)
+    {
+        return _dbContext?.Users.FirstOrDefault(x => x.Email == email);
     }
 }
