@@ -51,9 +51,9 @@ public static class PipelineExtensions
     {
         #region DbContext
         services.AddScoped<AppDbContext>();
-        
+
         services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("PROCommerce"))
+            options.UseSqlServer(configuration.GetConnectionString("PROCommerce"), x => x.MigrationsAssembly("PROCommerce.Authentication.API"))
         );
         #endregion DbContext
 
