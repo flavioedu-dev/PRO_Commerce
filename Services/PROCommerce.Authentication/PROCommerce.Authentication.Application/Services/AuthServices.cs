@@ -11,24 +11,28 @@ namespace PROCommerce.Authentication.Application.Services;
 
 public class AuthServices : IAuthServices
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ITokenServices _tokenService;
+    private readonly IPasswordEncryption _passwordEncryption;
 
-    public AuthServices(IUserRepository userRepository, ITokenServices tokenService)
+    public AuthServices(IUnitOfWork unitOfWork, ITokenServices tokenService, IPasswordEncryption passwordEncryption)
     {
-        _userRepository = userRepository;
+        _unitOfWork = unitOfWork;
         _tokenService = tokenService;
+        _passwordEncryption = passwordEncryption;
     }
 
     public LoginResponseDTO Login(LoginDTO loginDTO)
     {
         try
         {
-            User? user = _userRepository.GetByUsername(x => x.Username == loginDTO.Username)
-                ?? throw new CustomResponseException(ApplicationMessages.Authentication_Login_User_NotFound);
+            User? user = _unitOfWork.UserRepository.GetByUsername(loginDTO.Username!)
+                ?? throw new CustomResponseException(ApplicationMessages.Authentication_Login_User_NotFound, 400);
 
-            if (user?.Password != loginDTO.Password)
-                throw new CustomResponseException(ApplicationMessages.Authentication_Login_ValidCredentials_Fail);
+            bool passIsCorrect = _passwordEncryption.ComparePassword(loginDTO.Password!, user.Password!);
+
+            if (!passIsCorrect)
+                throw new CustomResponseException(ApplicationMessages.Authentication_Login_ValidCredentials_Fail, 400);
 
             string token = _tokenService.GenerateToken(user!);
 
