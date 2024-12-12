@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PROCommerce.Authentication.API.Models.Auth.Login;
+using PROCommerce.Authentication.API.Models.Auth.Register;
 using PROCommerce.Authentication.Domain.DTOs.Auth;
 using PROCommerce.Authentication.Domain.DTOs.Auth.Response;
 using PROCommerce.Authentication.Domain.Interfaces.Services;
@@ -29,5 +30,23 @@ public class AuthController : ControllerBase
         LoginResponseDTO loginResponseDTO = _authServices.Login(loginDTO);
 
         return StatusCode(StatusCodes.Status200OK, loginResponseDTO);
+    }
+
+    [HttpPost("register")]
+    [AllowAnonymous]
+    public IActionResult Register(RegisterModel registerModel)
+    {
+        try
+        {
+            RegisterDTO registerDTO = registerModel.Adapt<RegisterDTO>();
+
+            RegisterResponseDTO registerResponseDTO = _authServices.Register(registerDTO);
+
+            return StatusCode(StatusCodes.Status201Created, registerResponseDTO);
+        }
+        catch (Exception)
+        {
+            return BadRequest();
+        }
     }
 }
