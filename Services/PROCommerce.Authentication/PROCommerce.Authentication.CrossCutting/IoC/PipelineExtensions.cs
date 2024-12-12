@@ -41,6 +41,10 @@ public static class PipelineExtensions
         #region Auth
         services.AddScoped<IAuthServices, AuthServices>();
         #endregion Auth
+
+        #region Encryption
+        services.AddScoped<IPasswordEncryption, PasswordEncryption>();
+        #endregion Encryption
     }
 
     public static void AddInfrastructureDI(this IServiceCollection services, IConfiguration configuration)
