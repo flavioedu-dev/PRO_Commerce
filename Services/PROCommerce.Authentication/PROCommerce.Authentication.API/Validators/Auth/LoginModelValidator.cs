@@ -14,7 +14,8 @@ public class LoginModelValidator : AbstractValidator<LoginModel>
 
         RuleFor(x => x.Username!.Length)
             .GreaterThanOrEqualTo(3)
-            .WithMessage(x => string.Format(ApiMessages.Auth_Field_GreaterThanOrEqual, nameof(x.Username), 3));
+            .WithMessage(x => string.Format(ApiMessages.Auth_Field_GreaterThanOrEqual, nameof(x.Username), 3))
+            .When(x => x.Username is not null);
 
         RuleFor(x => x.Password)
             .NotEmpty()
@@ -22,7 +23,8 @@ public class LoginModelValidator : AbstractValidator<LoginModel>
 
         RuleFor(x => x.Password!.Length)
             .GreaterThanOrEqualTo(8)
-            .WithMessage(x => string.Format(ApiMessages.Auth_Field_GreaterThanOrEqual, nameof(x.Password), 8));
+            .WithMessage(x => string.Format(ApiMessages.Auth_Field_GreaterThanOrEqual, nameof(x.Password), 8))
+            .When(x => x.Password is not null);
 
         RuleFor(x => x.Password)
             .Matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$")
