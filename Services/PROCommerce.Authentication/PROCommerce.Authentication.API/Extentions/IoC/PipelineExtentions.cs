@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using PROCommerce.Authentication.API.Extentions.Mapper;
+using PROCommerce.Authentication.API.Filters;
 using PROCommerce.Authentication.API.Middlewares;
 using PROCommerce.Authentication.CrossCutting.IoC;
 
@@ -11,7 +12,12 @@ public static class PipelineExtentions
     public static void AddApiDI(this IServiceCollection services)
     {
         #region Default
-        services.AddControllers();
+        services.AddControllers(options =>
+            options.Filters.Add(typeof(CustomErrorResponse))
+        ).ConfigureApiBehaviorOptions(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        });
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         #endregion Default
