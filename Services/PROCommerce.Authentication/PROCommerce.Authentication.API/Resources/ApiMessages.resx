@@ -120,6 +120,9 @@
   <data name="Auth_Field_GreaterThanOrEqual" xml:space="preserve">
     <value>O valor do campo {0} deve conter no mínimo {1} caracteres.</value>
   </data>
+  <data name="Auth_Field_Invalid" xml:space="preserve">
+    <value>O valor do campo {0} é inválido.</value>
+  </data>
   <data name="Auth_Field_Required" xml:space="preserve">
     <value>O valor do campo {0} é obrigatório.</value>
   </data>

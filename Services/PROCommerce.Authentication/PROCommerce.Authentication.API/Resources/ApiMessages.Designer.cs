@@ -70,6 +70,15 @@ namespace PROCommerce.Authentication.API.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O valor do campo {0} é inválido..
+        /// </summary>
+        public static string Auth_Field_Invalid {
+            get {
+                return ResourceManager.GetString("Auth_Field_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O valor do campo {0} é obrigatório..
         /// </summary>
         public static string Auth_Field_Required {
