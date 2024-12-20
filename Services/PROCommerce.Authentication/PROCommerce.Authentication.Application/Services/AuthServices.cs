@@ -32,7 +32,7 @@ public class AuthServices : IAuthServices
             bool passIsCorrect = _passwordEncryption.ComparePassword(loginDTO.Password!, user.Password!);
 
             if (!passIsCorrect)
-                throw new CustomResponseException(ApplicationMessages.Authentication_Login_ValidCredentials_Fail, 400);
+                throw new CustomResponseException(ApplicationMessages.Authentication_Login_Credentials_Invalid, 400);
 
             string token = _tokenService.GenerateToken(user!);
 

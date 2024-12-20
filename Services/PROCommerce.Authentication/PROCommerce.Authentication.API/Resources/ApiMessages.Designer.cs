@@ -61,7 +61,7 @@ namespace PROCommerce.Authentication.API.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O valor do campo {0} deve conter no mínimo {1} caracteres..
+        ///   Looks up a localized string similar to O valor do campo {0} deve conter no mínimo {1} caracteres.
         /// </summary>
         public static string Auth_Field_GreaterThanOrEqual {
             get {
@@ -70,7 +70,7 @@ namespace PROCommerce.Authentication.API.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O valor do campo {0} é inválido..
+        ///   Looks up a localized string similar to O valor do campo {0} é inválido.
         /// </summary>
         public static string Auth_Field_Invalid {
             get {
@@ -79,7 +79,7 @@ namespace PROCommerce.Authentication.API.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O valor do campo {0} é obrigatório..
+        ///   Looks up a localized string similar to O valor do campo {0} é obrigatório.
         /// </summary>
         public static string Auth_Field_Required {
             get {
@@ -88,7 +88,7 @@ namespace PROCommerce.Authentication.API.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to O valor do campo password deve conter os seguintes caracteres: letras maiúsculas, letras minúsculas, números e caracteres especiais..
+        ///   Looks up a localized string similar to O valor do campo password deve conter os seguintes caracteres: letras maiúsculas, letras minúsculas, números e caracteres especiais.
         /// </summary>
         public static string Auth_Password_Required_Characters {
             get {

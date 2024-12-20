@@ -61,7 +61,16 @@ namespace PROCommerce.Authentication.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User not found..
+        ///   Looks up a localized string similar to Credenciais inválidas.
+        /// </summary>
+        public static string Authentication_Login_Credentials_Invalid {
+            get {
+                return ResourceManager.GetString("Authentication_Login_Credentials_Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não encontrado.
         /// </summary>
         public static string Authentication_Login_User_NotFound {
             get {
@@ -70,16 +79,7 @@ namespace PROCommerce.Authentication.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid credentials..
-        /// </summary>
-        public static string Authentication_Login_ValidCredentials_Fail {
-            get {
-                return ResourceManager.GetString("Authentication_Login_ValidCredentials_Fail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email already registered..
+        ///   Looks up a localized string similar to Email já registrado.
         /// </summary>
         public static string Authentication_Register_User_EmailExists {
             get {
@@ -88,7 +88,7 @@ namespace PROCommerce.Authentication.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username unavailable..
+        ///   Looks up a localized string similar to Nome de usuário não disponível.
         /// </summary>
         public static string Authentication_Register_User_UsernameExists {
             get {

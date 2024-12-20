@@ -34,7 +34,6 @@ public class PasswordEncryption : IPasswordEncryption
         byte[] salt = new byte[16];
         byte[] previusHash = new byte[20];
 
-
         Array.Copy(hashBytes, 0, salt, 0, 16);
         Array.Copy(hashBytes, 16, previusHash, 0, 20);
 
@@ -46,7 +45,6 @@ public class PasswordEncryption : IPasswordEncryption
         {
             if (previusHash[i] != newHash[i])
                 return false;
-            
         }
 
         return true;
