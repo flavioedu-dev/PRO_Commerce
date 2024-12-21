@@ -79,7 +79,7 @@ namespace PROCommerce.Authentication.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email já registrado.
+        ///   Looks up a localized string similar to Email indisponível.
         /// </summary>
         public static string Authentication_Register_User_EmailExists {
             get {
@@ -88,7 +88,16 @@ namespace PROCommerce.Authentication.Application.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nome de usuário não disponível.
+        ///   Looks up a localized string similar to Usuário cadastrado com sucesso.
+        /// </summary>
+        public static string Authentication_Register_User_Success {
+            get {
+                return ResourceManager.GetString("Authentication_Register_User_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome de usuário indisponível.
         /// </summary>
         public static string Authentication_Register_User_UsernameExists {
             get {

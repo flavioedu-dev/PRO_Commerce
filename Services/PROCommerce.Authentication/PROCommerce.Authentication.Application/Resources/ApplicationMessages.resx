@@ -124,9 +124,12 @@
     <value>Usuário não encontrado</value>
   </data>
   <data name="Authentication_Register_User_EmailExists" xml:space="preserve">
-    <value>Email já registrado</value>
+    <value>Email indisponível</value>
+  </data>
+  <data name="Authentication_Register_User_Success" xml:space="preserve">
+    <value>Usuário cadastrado com sucesso</value>
   </data>
   <data name="Authentication_Register_User_UsernameExists" xml:space="preserve">
-    <value>Nome de usuário não disponível</value>
+    <value>Nome de usuário indisponível</value>
   </data>
 </root>

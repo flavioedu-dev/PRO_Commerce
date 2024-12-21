@@ -68,7 +68,7 @@ public class AuthServices : IAuthServices
             _unitOfWork.UserRepository.Create(user);
             _unitOfWork.Commit();
 
-            RegisterResponseDTO registerResponseDTO = user.Adapt<RegisterResponseDTO>();
+            RegisterResponseDTO registerResponseDTO = ValueTuple.Create(user, ApplicationMessages.Authentication_Register_User_Success).Adapt<RegisterResponseDTO>();
 
             return registerResponseDTO;
         }

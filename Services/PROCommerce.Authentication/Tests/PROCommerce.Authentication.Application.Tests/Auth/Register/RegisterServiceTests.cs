@@ -100,7 +100,7 @@ public class RegisterServiceTests
         // Arrange
         _unitOfWorkMock.Setup(x => x.UserRepository.GetByEmail(It.IsAny<string>())).Returns(_userMock);
 
-        string errorMsg = "Email já registrado";
+        string errorMsg = "Email indisponível";
 
         // Act
         AuthServices authServices = new(_unitOfWorkMock.Object, _tokenServiceMock.Object, _passwordEncryptionMock.Object);

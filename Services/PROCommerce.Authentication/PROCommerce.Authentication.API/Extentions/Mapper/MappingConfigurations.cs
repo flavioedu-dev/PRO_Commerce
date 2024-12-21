@@ -25,6 +25,13 @@ public static class MappingConfigurations
             .Map(dest => dest.Password, src => src.hashPassword);
         #endregion RegisterDTO, hashPassword => User
 
+        #region User, Message => RegisterResponseDTO
+        TypeAdapterConfig<(User user, string message), RegisterResponseDTO>
+            .NewConfig()
+            .Map(dest => dest.Id, src => src.user.Id)
+            .Map(dest => dest.Message, src => src.message);
+        #endregion User, Message => RegisterResponseDTO
+
         TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
     }
 }
