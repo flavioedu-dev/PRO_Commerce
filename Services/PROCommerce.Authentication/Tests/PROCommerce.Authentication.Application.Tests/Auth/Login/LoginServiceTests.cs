@@ -10,7 +10,7 @@ using PROCommerce.Authentication.Domain.Exceptions;
 using PROCommerce.Authentication.Domain.Interfaces.Repositories;
 using PROCommerce.Authentication.Domain.Interfaces.Services;
 
-namespace PROCommerce.Authentication.Application.Tests.AuthServicesTests;
+namespace PROCommerce.Authentication.Application.Tests.Auth.Login;
 
 [TestFixture]
 public class LoginTests
