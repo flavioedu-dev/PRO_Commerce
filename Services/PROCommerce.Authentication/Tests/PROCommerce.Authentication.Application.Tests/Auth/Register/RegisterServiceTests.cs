@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using PROCommerce.Authentication.API.Extentions.Mapper;
+using PROCommerce.Authentication.API.Extensions.Mapper;
 using PROCommerce.Authentication.Application.Services;
 using PROCommerce.Authentication.Domain.DTOs.Auth;
 using PROCommerce.Authentication.Domain.DTOs.Auth.Response;

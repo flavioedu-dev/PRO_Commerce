@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using PROCommerce.Authentication.API.Extentions.Mapper;
+using PROCommerce.Authentication.API.Extensions.Mapper;
 using PROCommerce.Authentication.Application.Services;
 using PROCommerce.Authentication.Domain.DTOs.Auth;
 using PROCommerce.Authentication.Domain.DTOs.Auth.Response;
@@ -13,7 +14,7 @@ using PROCommerce.Authentication.Domain.Interfaces.Services;
 namespace PROCommerce.Authentication.Application.Tests.Auth.Login;
 
 [TestFixture]
-public class LoginTests
+public class LoginServiceTests
 {
     private LoginDTO _loginDTOMock;
     private User _userMock;
@@ -35,6 +36,7 @@ public class LoginTests
         {
             Id = 1
         };
+
 
         _unitOfWorkMock = new();
         _unitOfWorkMock.Setup(x => x.UserRepository.GetByUsername(It.IsAny<string>())).Returns(_userMock);
@@ -110,8 +112,7 @@ public class LoginTests
         // Act
         LoginResponseDTO expectedLoginResponseDTO = new()
         {
-            Id = _userMock.Id,
-            Token = string.Empty
+            Id = _userMock.Id
         };
 
         AuthServices authServices = new(_unitOfWorkMock.Object, _tokenServiceMock.Object, _passwordEncryptionMock.Object);
