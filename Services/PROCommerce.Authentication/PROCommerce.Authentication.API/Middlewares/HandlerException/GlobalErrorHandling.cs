@@ -1,4 +1,5 @@
 ﻿using PROCommerce.Authentication.API.Middlewares.HandlerException.Response;
+using PROCommerce.Authentication.Application.Resources;
 using PROCommerce.Authentication.Domain.Exceptions;
 using System.Text.Json;
 
@@ -40,7 +41,7 @@ public class GlobalErrorHandling
         switch (ex)
         {
             case CustomResponseException customException:
-                errorResponse.Message = customException?.InnerException?.Message ?? customException?.Message;
+                errorResponse.Message = customException.StatusCode == 401 ? ApplicationMessages.Authentication_Login_Credentials_Invalid : customException?.InnerException?.Message ?? customException?.Message;
 
                 httpContext.Response.StatusCode = customException?.StatusCode ?? 400;
 

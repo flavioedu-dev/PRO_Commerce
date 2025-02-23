@@ -1,4 +1,6 @@
 ﻿using Mapster;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using PROCommerce.Authentication.Application.Resources;
 using PROCommerce.Authentication.Domain.DTOs.Auth;
 using PROCommerce.Authentication.Domain.DTOs.Auth.Response;
@@ -24,57 +26,51 @@ public class AuthServices : IAuthServices
 
     public LoginResponseDTO Login(LoginDTO loginDTO)
     {
-        try
+        User? user = _unitOfWork.UserRepository.GetByUsername(loginDTO.Username!)
+            ?? throw new CustomResponseException(ApplicationMessages.Authentication_Login_User_NotFound, 401);
+
+        bool passIsCorrect = _passwordEncryption.ComparePassword(loginDTO.Password!, user.Password!);
+
+        if (!passIsCorrect)
+            throw new CustomResponseException(ApplicationMessages.Authentication_Login_Credentials_Invalid, 401);
+
+        string token = _tokenService.GenerateToken(user!);
+
+        CookieOptions cookieOptions = new()
         {
-            User? user = _unitOfWork.UserRepository.GetByUsername(loginDTO.Username!)
-                ?? throw new CustomResponseException(ApplicationMessages.Authentication_Login_User_NotFound, 400);
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict
+        };
 
-            bool passIsCorrect = _passwordEncryption.ComparePassword(loginDTO.Password!, user.Password!);
+        loginDTO?.Cookies?.Append("Authorization", $"Bearer {token}", cookieOptions);
 
-            if (!passIsCorrect)
-                throw new CustomResponseException(ApplicationMessages.Authentication_Login_Credentials_Invalid, 400);
+        LoginResponseDTO LoginResponseDTO = user.Adapt<LoginResponseDTO>();
 
-            string token = _tokenService.GenerateToken(user!);
-
-            LoginResponseDTO LoginResponseDTO = ValueTuple.Create(user, token).Adapt<LoginResponseDTO>();
-
-            return LoginResponseDTO;
-        }
-        catch
-        {
-            throw;
-        }
-
+        return LoginResponseDTO;
     }
 
     public RegisterResponseDTO Register(RegisterDTO registerDTO)
     {
-        try
-        {
-            User? userByUsername = _unitOfWork.UserRepository.GetByUsername(registerDTO.Username);
+        User? userByUsername = _unitOfWork.UserRepository.GetByUsername(registerDTO.Username);
 
-            if (userByUsername is not null) 
-                throw new CustomResponseException(ApplicationMessages.Authentication_Register_User_UsernameExists);
+        if (userByUsername is not null)
+            throw new CustomResponseException(ApplicationMessages.Authentication_Register_User_UsernameExists);
 
-            User? userByEmail = _unitOfWork.UserRepository.GetByEmail(registerDTO.Email);
+        User? userByEmail = _unitOfWork.UserRepository.GetByEmail(registerDTO.Email);
 
-            if (userByEmail is not null) 
-                throw new CustomResponseException(ApplicationMessages.Authentication_Register_User_EmailExists);
+        if (userByEmail is not null)
+            throw new CustomResponseException(ApplicationMessages.Authentication_Register_User_EmailExists);
 
-            string hashPassword = _passwordEncryption.HashPassword(registerDTO.Password);
+        string hashPassword = _passwordEncryption.HashPassword(registerDTO.Password);
 
-            User user = ValueTuple.Create(registerDTO, hashPassword).Adapt<User>();
+        User user = ValueTuple.Create(registerDTO, hashPassword).Adapt<User>();
 
-            _unitOfWork.UserRepository.Create(user);
-            _unitOfWork.Commit();
+        _unitOfWork.UserRepository.Create(user);
+        _unitOfWork.Commit();
 
-            RegisterResponseDTO registerResponseDTO = ValueTuple.Create(user, ApplicationMessages.Authentication_Register_User_Success).Adapt<RegisterResponseDTO>();
+        RegisterResponseDTO registerResponseDTO = ValueTuple.Create(user, ApplicationMessages.Authentication_Register_User_Success).Adapt<RegisterResponseDTO>();
 
-            return registerResponseDTO;
-        }
-        catch
-        {
-            throw;
-        }
+        return registerResponseDTO;
     }
 }
