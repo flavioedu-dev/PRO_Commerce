@@ -1,13 +1,13 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
-using PROCommerce.Authentication.API.Extentions.Mapper;
+using PROCommerce.Authentication.API.Extensions.Mapper;
 using PROCommerce.Authentication.API.Filters;
 using PROCommerce.Authentication.API.Middlewares;
 using PROCommerce.Authentication.CrossCutting.IoC;
 
-namespace PROCommerce.Authentication.API.Extentions.IoC;
+namespace PROCommerce.Authentication.API.Extensions.IoC;
 
-public static class PipelineExtentions
+public static class PipelineExtensions
 {
     public static void AddApiDI(this IServiceCollection services)
     {

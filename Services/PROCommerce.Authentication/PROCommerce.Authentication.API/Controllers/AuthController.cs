@@ -24,7 +24,7 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     public IActionResult Login(LoginModel loginModel)
     {
-        LoginDTO loginDTO = loginModel.Adapt<LoginDTO>();
+        LoginDTO loginDTO = (loginModel, Response.Cookies).Adapt<LoginDTO>();
 
         LoginResponseDTO loginResponseDTO = _authServices.Login(loginDTO);
 
