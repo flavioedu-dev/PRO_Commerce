@@ -1,7 +1,5 @@
-﻿using PROCommerce.Authentication.Domain.DTOs.Auth;
-using PROCommerce.Authentication.Domain.Entities;
+﻿using PROCommerce.Authentication.Domain.Entities;
 using PROCommerce.Authentication.Domain.Interfaces.Repositories;
-using System.Linq.Expressions;
 
 namespace PROCommerce.Authentication.Infrastructure.Repositories;
 

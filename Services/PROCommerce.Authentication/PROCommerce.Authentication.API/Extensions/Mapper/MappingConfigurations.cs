@@ -30,7 +30,8 @@ public static class MappingConfigurations
         TypeAdapterConfig<(RegisterDTO registerDTO, string hashPassword), User>
             .NewConfig()
             .Map(dest => dest, src => src.registerDTO)
-            .Map(dest => dest.Password, src => src.hashPassword);
+            .Map(dest => dest.Password, src => src.hashPassword)
+            .Map(dest => dest.CreationDate, src => DateTime.Now);
         #endregion RegisterDTO, hashPassword => User
 
         #region User, Message => RegisterResponseDTO
