@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.API", "PROCommerce.API\PROCommerce.API.csproj", "{36760E94-3B06-4CF8-81C9-DC3ACC58D695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROCommerce.ProductCatalog.API", "PROCommerce.API\PROCommerce.ProductCatalog.API.csproj", "{36760E94-3B06-4CF8-81C9-DC3ACC58D695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Domain", "PROCommerce.Domain\PROCommerce.Domain.csproj", "{D6FF9A55-24A9-4EB7-9F23-6F75F349CE30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROCommerce.ProductCatalog.Domain", "PROCommerce.Domain\PROCommerce.ProductCatalog.Domain.csproj", "{D6FF9A55-24A9-4EB7-9F23-6F75F349CE30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Application", "PROCommerce.Application\PROCommerce.Application.csproj", "{9A61621E-6746-4E92-A9E7-BBBA771D21BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROCommerce.ProductCatalog.Application", "PROCommerce.Application\PROCommerce.ProductCatalog.Application.csproj", "{9A61621E-6746-4E92-A9E7-BBBA771D21BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.Infrastructure", "PROCommerce.Infrastructure\PROCommerce.Infrastructure.csproj", "{27D827AC-B577-42E9-8977-948D9A634034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROCommerce.ProductCatalog.Infrastructure", "PROCommerce.Infrastructure\PROCommerce.ProductCatalog.Infrastructure.csproj", "{27D827AC-B577-42E9-8977-948D9A634034}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROCommerce.CrossCutting", "PROCommerce.CrossCutting\PROCommerce.CrossCutting.csproj", "{37A597D8-7B27-402F-9154-DFD6C6D7688C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROCommerce.ProductCatalog.CrossCutting", "PROCommerce.CrossCutting\PROCommerce.ProductCatalog.CrossCutting.csproj", "{37A597D8-7B27-402F-9154-DFD6C6D7688C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
